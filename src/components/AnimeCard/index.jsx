@@ -1,5 +1,3 @@
-import { Typography } from "@mui/material";
-import { Link } from "react-router-dom";
 import { StyledImg, StyledLink, StyledTypography } from "./Styled";
 
 const AnimeCard = ({ anime }) => {
