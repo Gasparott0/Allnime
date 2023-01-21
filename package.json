@@ -15,8 +15,11 @@
     "@mui/material": "^5.11.5",
     "@mui/styled-engine-sc": "^5.11.0",
     "axios": "^1.2.3",
+    "framer-motion": "^8.5.0",
+    "notistack": "^2.0.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.7.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {

@@ -1,0 +1,12 @@
+.inner {
+  display: flex;
+}
+
+.item {
+  padding-right: 20px;
+}
+
+.carousel {
+  cursor: grab;
+  overflow: hidden;
+}

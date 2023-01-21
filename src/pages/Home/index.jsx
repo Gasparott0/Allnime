@@ -1,10 +1,11 @@
-import { Box } from "@mui/material";
-import AnimeGrid from "../../components/AnimeGrid";
+import { Box, Typography } from "@mui/material";
+import AnimeCarousel from "../../components/AnimeCarousel";
 
 const Home = () => {
   return (
-    <Box>
-      <AnimeGrid />
+    <Box width="70%" margin="auto">
+      <Typography variant="h2">Top animes!</Typography>
+      <AnimeCarousel />
     </Box>
   );
 };

@@ -1,14 +1,11 @@
-import { Box } from "@mui/material";
-import AnimeGrid from "./components/AnimeGrid";
-import MainAppBar from "./components/MainAppBar";
-// import "./App.css";
+import Routes from "./Routes";
+import Providers from "./Providers";
 
 function App() {
   return (
-    <Box>
-      <MainAppBar />
-      <AnimeGrid />
-    </Box>
+    <Providers>
+      <Routes />
+    </Providers>
   );
 }
 
