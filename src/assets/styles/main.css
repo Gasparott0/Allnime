@@ -1,13 +1,13 @@
 body {
   background-repeat: no-repeat;
-  background: #121214;
-  background-image: url(/src/assets/Background.png);
+  /* background: #121214;
+  background-image: url(/src/assets/Background.png); */
   background-size: cover;
-  /* background: rgb(6, 6, 20);
+  background: rgb(6, 6, 20);
   background: linear-gradient(
     360deg,
     rgba(6, 6, 20, 1) 50%,
     rgba(48, 53, 78, 1) 100%
-  ); */
+  );
   background-attachment: fixed;
 }

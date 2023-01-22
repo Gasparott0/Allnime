@@ -9,4 +9,5 @@
 .carousel {
   cursor: grab;
   overflow: hidden;
+  min-height: 320px;
 }

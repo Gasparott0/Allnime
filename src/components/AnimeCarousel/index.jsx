@@ -3,7 +3,7 @@ import AnimeCard from "../AnimeCard";
 import { motion } from "framer-motion";
 import "./style.css";
 import { useAnime } from "../../hooks";
-import { CircularProgress } from "@mui/material";
+import { Box, CircularProgress } from "@mui/material";
 
 const AnimeCarousel = () => {
   const carouselDiv = useRef();
@@ -24,13 +24,24 @@ const AnimeCarousel = () => {
     );
   }, [topAnimes]);
 
+  if (loadingAnimes)
+    return (
+      <Box
+        height="320px"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <CircularProgress color="primary" />
+      </Box>
+    );
+
   return (
     <motion.div
       ref={carouselDiv}
       className="carousel"
       whileTap={{ cursor: "grabbing" }}
     >
-      {loadingAnimes && <CircularProgress />}
       <motion.div
         className="inner"
         drag="x"

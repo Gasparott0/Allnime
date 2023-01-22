@@ -1,6 +1,7 @@
-import { Box, TextField, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import AnimeCarousel from "../../components/AnimeCarousel";
 import logoImg from "../../assets/Logo.png";
+import SearchAnimeAutocomplete from "../../components/SearchAnimeAutocomplete";
 
 const Home = () => {
   return (
@@ -13,8 +14,10 @@ const Home = () => {
       justifyContent="center"
       rowGap="2rem"
     >
-      {/* <img src={logoImg} alt="" /> */}
-      <TextField fullWidth label="Search for anime" id="fullWidth" />
+      <Box className="logo" display="flex" justifyContent="center">
+        <img src={logoImg} height="160px" width="290px" alt="" />
+      </Box>
+      <SearchAnimeAutocomplete />
       <Typography variant="h2">Top animes!</Typography>
       <AnimeCarousel />
     </Box>

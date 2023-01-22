@@ -1,16 +1,16 @@
 import axios from "axios";
 import { useState } from "react";
 
-const useAnime = () => {
-  const [topAnimes, setTopAnimes] = useState([]);
+const useSearchAnime = () => {
+  const [searchAnimes, setSearchAnimes] = useState([]);
   const [loadingAnimes, setLoadingAnimes] = useState(false);
 
-  const fireGetTopAnimes = async () => {
+  const fireGetSearchAnimes = async (query) => {
     setLoadingAnimes(true);
     await axios
-      .get("https://api.jikan.moe/v4/top/anime")
+      .get(`https://api.jikan.moe/v4/anime?q=${query}`)
       .then(({ data }) => {
-        setTopAnimes(data.data);
+        setSearchAnimes(data.data);
       })
       .catch(({ message }) => {
         enqueueSnackbar(message, { variant: "error" });
@@ -18,7 +18,7 @@ const useAnime = () => {
     setLoadingAnimes(false);
   };
 
-  return { topAnimes, loadingAnimes, fireGetTopAnimes };
+  return { searchAnimes, loadingAnimes, fireGetSearchAnimes };
 };
 
-export default useAnime;
+export default useSearchAnime;
