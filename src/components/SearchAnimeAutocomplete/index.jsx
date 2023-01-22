@@ -1,13 +1,15 @@
-import { Autocomplete, CircularProgress, TextField } from "@mui/material";
+import { CircularProgress, TextField } from "@mui/material";
 import _ from "lodash";
 import { Fragment, useEffect, useState } from "react";
 import { useSearchAnime } from "../../hooks";
 import { StyledAutocomplete } from "./Styled";
+import { useNavigate } from "react-router-dom";
 
 const SearchAnimeAutocomplete = () => {
   const { searchAnimes, loadingAnimes, fireGetSearchAnimes } = useSearchAnime();
   const [open, setOpen] = useState(false);
-  const [options, setOptions] = useState([]);
+  const [selected, setSelected] = useState(null);
+  const navigate = useNavigate();
 
   const getAnimes = (e) => {
     const query = e.target.value;
@@ -16,11 +18,13 @@ const SearchAnimeAutocomplete = () => {
 
   const handleGetAnimes = _.debounce(getAnimes, 700);
 
+  const handleChange = (event, newValue) => {
+    setSelected(newValue);
+  };
+
   useEffect(() => {
-    if (!open) {
-      setOptions([]);
-    }
-  }, [open]);
+    if (selected) navigate(`/anime/${selected.mal_id}`);
+  }, [selected]);
 
   return (
     <StyledAutocomplete
@@ -32,8 +36,11 @@ const SearchAnimeAutocomplete = () => {
       onClose={() => {
         setOpen(false);
       }}
-      isOptionEqualToValue={(option, value) => option.title === value.title}
-      getOptionLabel={(option) => option.title}
+      isOptionEqualToValue={(option, value) =>
+        option.title === value.title && option.source === value.source
+      }
+      getOptionLabel={(option) => `${option.title} - ${option.source}`}
+      onChange={handleChange}
       onInputChange={handleGetAnimes}
       options={searchAnimes}
       loading={loadingAnimes}
